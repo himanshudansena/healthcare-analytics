@@ -105,7 +105,7 @@ Billing Amount, Days Stayed, and Age correlate strongly with each other (Billing
 
 ---
 
-## Limitations (say these proactively in interviews)
+## Limitations
 
 - **The dataset is synthetic and was edited by me to add realistic relationships between fields** — see the note at the top of this document. Every finding here demonstrates the analysis process applied correctly, not a claim about real hospital economics.
 - **Doctor names don't represent a real recurring hospital staff roster** — they're assigned per record in this dataset, not tied to a fixed set of actual doctors. The "Total Patients by Doctor" chart demonstrates the *technique* (Top-N ranking, case-load analysis) rather than a genuine staffing insight.
