@@ -1,6 +1,6 @@
 # 🏥 Healthcare Patient Analytics Dashboard
 
-End-to-end data analytics project on hospital patient records — from raw data cleaning in Python to an interactive 4-page Power BI dashboard for hospital administrators.
+End-to-end data analytics project on hospital patient records — from raw data cleaning in Python to an interactive 3-page Power BI dashboard for hospital administrators.
 
 📄 Full analysis and findings: [reports/FINDINGS.md](reports/FINDINGS.md)
 
@@ -17,11 +17,11 @@ To make the dataset usable for an actual cost/risk analysis, I edited it to intr
 ## Key Findings
 
 - **Cancer patients cost ~7–20x more than any other condition** — average billing of $89,030 vs $4,420–$13,186 for every other condition. This is the single biggest cost driver in the dataset.
-- **Length of stay is the strongest driver of cost** — Billing Amount and Days Stayed correlate at 0.92, the strongest relationship found anywhere in the data. Condition determines stay length, and stay length determines cost.
-- **Medicare's high average billing ($89,024) is a downstream effect of Cancer, not insurer pricing** — cross-checking the Medical Condition × Insurance Provider breakdown shows all insurers charge nearly the same for Cancer cases; Medicare's overall average is high simply because its patient base skews heavily toward Cancer.
+- **Length of stay is the strongest driver of cost** — Billing Amount and Days Stayed correlate at 0.92, the strongest relationship found anywhere in the data, and is visualized directly on the dashboard's Condition Deep-Dive page as a per-patient scatter plot.
+- **Medicare's high average billing ($89,024) is a downstream effect of Cancer, not insurer pricing** — cross-checking the Medical Condition × Insurance Provider breakdown shows all insurers charge nearly the same for Cancer cases; Medicare's overall average is high simply because its patient base skews heavily toward Cancer. This finding is called out directly on the dashboard, not left for the viewer to discover on their own.
 - **Admission Type drives a real difference in length of stay** — Urgent admissions average 9.14 days vs Emergency's 5.32 days, a 72% gap, and Urgent stays are also the least predictable (widest spread).
-- **35.1% of all test results came back Abnormal**, with Cancer (5,260 cases) carrying the highest abnormal case volume of any condition.
-- **Monday is the busiest admission day** (~18K patients) versus weekend days (~5K), with 87.1% of all admissions falling on weekdays.
+- **35.11% of all test results came back Abnormal**, with Cancer (5,260 cases) carrying the highest abnormal case volume of any condition.
+- **Monday is the busiest admission day** (~18K patients) versus weekend days (~5K), with 87.12% of all admissions falling on weekdays.
 - Patient admissions **peak in August** (4,765 cases), the highest of any calendar month.
 
 ## Tech Stack
@@ -30,7 +30,7 @@ To make the dataset usable for an actual cost/risk analysis, I edited it to intr
 |---|---|
 | Python (Pandas, NumPy) | Data cleaning, feature engineering |
 | Matplotlib & Seaborn | Exploratory data analysis & visualization |
-| Power BI / DAX | Interactive 4-page dashboard |
+| Power BI / DAX | Interactive 3-page dashboard |
 
 ## Data Cleaning Highlights
 
@@ -47,17 +47,16 @@ Full process documented in `notebooks/2_dataCleaning.ipynb`.
 
 ## Dashboard Preview
 
-**Page 1 — Executive Summary**
+The dashboard was consolidated from an earlier 4-page version into 3 pages — the original "Cost Analysis" and "Clinical & Risk" pages were merged into a single **Condition Deep-Dive** page sharing one Medical Condition slicer, since both were scoped to the same dimension and splitting them forced the viewer to cross-reference two separate pages for one story. A low-signal "Total Patients by Doctor" chart was also removed — doctor names in this dataset are randomly assigned per record, not a real recurring staff roster, and the chart showed no meaningful variation as a result.
+
+**Page 1 — Overview**
 ![Overview](dashboard/screenshots/page1_overview.png)
 
-**Page 2 — Clinical & Risk**
-![Clinical Risk](dashboard/screenshots/page2_clinical_risk.png)
+**Page 2 — Condition Deep-Dive**
+![Condition Deep-Dive](dashboard/screenshots/page2_condition_deepdive.png)
 
-**Page 3 — Cost Analysis**
-![Cost Analysis](dashboard/screenshots/page3_cost_analysis.png)
-
-**Page 4 — Operational Deep-Dive**
-![Operational](dashboard/screenshots/page4_operational.png)
+**Page 3 — Operational & Demographics**
+![Operational and Demographics](dashboard/screenshots/page3_operational_demographics.png)
 
 ## Project Structure
 
@@ -89,5 +88,4 @@ Source: [Healthcare Dataset — Kaggle](https://www.kaggle.com/datasets/prasad22
 
 ## Author
 
-Himanshu Dansena— B.Tech Biotechnology, NIT Raipur
-
+Himanshu Dansena — B.Tech Biotechnology, NIT Raipur
